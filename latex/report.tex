@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper]{article} 
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+
+\usepackage{savesym}
+\usepackage{amsmath}
+\savesymbol{iint}
+\savesymbol{openbox}
+\usepackage{txfonts}
+\restoresymbol{TXF}{iint}
+\restoresymbol{TXF}{openbox}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\captionsetup[sub]{labelformat=simple}
+
+%\usepackage[english]{babel}
+
+\usepackage{epigraph}
+\setlength\epigraphwidth{12cm}
+\setlength\epigraphrule{0pt}
+
+\usepackage{geometry}
+\geometry{a4paper} 
+\geometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
+\usepackage{setspace}
+\onehalfspace
+\setlength\parindent{0pt}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr,colortbl}
+
+\pagestyle{fancy}
+\usepackage{lastpage}
+\lhead{AUTHOR}
+\rhead{\today}
+%\chead{}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\usepackage{graphicx}
+\usepackage{forest}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% Some nice colors
+\definecolor{bazaar}{rgb}{0.6, 0.47, 0.48}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\usepackage[colorlinks = true,
+            linkcolor = cadet,
+            urlcolor  = coolblack,
+            citecolor = coolblack,
+            anchorcolor = black]{hyperref}
+
+
+\usepackage[authoryear, round]{natbib}
+\bibliographystyle{chicago} 
+%\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
+
+\usepackage{appendix}
+\usepackage{afterpage}
+
+\usepackage{scrextend} % Indent text
+
+\usepackage{tabularx}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{longtable}
+\usepackage{wrapfig}
+
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage[online]{threeparttablex}
+
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+
+% Inspirational quote in the beginning
+\usepackage{epigraph}
+% \epigraphsize{\small}% Default
+\setlength\epigraphwidth{5.5cm}
+\setlength\epigraphrule{0pt}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
+\makeatother
+
+% Note/Source/Text after Tables
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+%\hypersetup{draft}
+\begin{document}
+{\doublespacing
+\begin{center}
+\begin{huge}
+TITLE
+\end{huge}
+
+\begin{large}
+SUB-TITLE
+\end{large}
+\vspace{0.5cm}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+AUTHOR'S NAME\footnote{INFORMATION, \url{e-mail}}
+\end{center}
+}
+\vspace{0.8cm}
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+
+\newpage
+\addcontentsline{toc}{section}{References}
+\bibliography{struggle}
+\nocite{*}
+\end{document}
